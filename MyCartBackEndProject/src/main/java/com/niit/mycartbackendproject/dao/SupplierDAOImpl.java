@@ -2,6 +2,8 @@ package com.niit.mycartbackendproject.dao;
 
 import java.util.List;
 
+
+
 import org.hibernate.Criteria;
 
 import org.hibernate.SessionFactory;
@@ -10,46 +12,46 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.mycartbackendproject.model.Category;
+import com.niit.mycartbackendproject.model.Supplier;
 
 
 
 
-@Repository("categoryDAO")
+@Repository("supplierDAO")
 
-public class CategoryDAOImpl implements CategoryDAO {
+public class SupplierDAOImpl implements SupplierDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
-	public CategoryDAOImpl(SessionFactory sessionFactory){
+	public SupplierDAOImpl(SessionFactory sessionFactory){
 		this.sessionFactory = sessionFactory;
 	}
 @Transactional
-public void saveOrUpdate(Category category){
-	sessionFactory.getCurrentSession().saveOrUpdate(category);
+public void saveOrUpdate(Supplier supplier){
+	sessionFactory.getCurrentSession().saveOrUpdate(supplier);
 }
 @Transactional
 public void delete(String id){
-	Category CategoryToDelete = new Category();
-	CategoryToDelete.setId(id);
-	sessionFactory.getCurrentSession().delete(CategoryToDelete);
+	Supplier SupplierToDelete = new Supplier();
+	SupplierToDelete.setId(id);
+	sessionFactory.getCurrentSession().delete(SupplierToDelete);
 }
 @Transactional
-public Category get(String id){
+public Supplier get(String id){
 	String hql = "from category where id ="+"'"+id+"'";
 	Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
-	List<Category> listCategory = (List<Category>) query.getResultList();
+	List<Supplier> listSupplier = (List<Supplier>) query.getResultList();
 	
-	if(listCategory != null && listCategory.isEmpty()){
-		return listCategory.get(0);
+	if(listSupplier != null && listSupplier.isEmpty()){
+		return listSupplier.get(0);
 	}
 	return null;
 }
 @Transactional
-public List<Category> list() {
+public List<Supplier> list() {
 	@SuppressWarnings("unchecked")
-	List<Category> listCategory = (List<Category>)
-	sessionFactory.getCurrentSession().createCriteria(Category.class)
+	List<Supplier> listSupplier = (List<Supplier>)
+	sessionFactory.getCurrentSession().createCriteria(Supplier.class)
 	.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
-	return listCategory;
+	return listSupplier;
 }
 }

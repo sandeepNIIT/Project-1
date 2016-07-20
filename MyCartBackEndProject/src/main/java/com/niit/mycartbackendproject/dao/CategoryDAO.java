@@ -1,7 +1,8 @@
 package com.niit.mycartbackendproject.dao;
 
 import java.util.List;
-import java.util.Locale.Category;
+
+import com.niit.mycartbackendproject.model.Category;
 
 public interface CategoryDAO {
 	public List<Category> list();
