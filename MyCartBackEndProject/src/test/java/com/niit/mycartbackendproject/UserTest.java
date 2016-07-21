@@ -20,7 +20,7 @@ public class UserTest {
 		user.setPassword("asdf");
 		user.setMobileno("8004497845");
 		user.setAddress("Hyderabad");
-		user.setEmail("sandeepsndp474@gmail.com");
+		user.setEmail("sandeepsdp@gmail.com");
 
 		userDAO.saveOrUpdate(user);
 

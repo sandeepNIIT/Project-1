@@ -16,7 +16,7 @@ public class ProductTest {
 
 		Product product = (Product) context.getBean("product");
 		product.setId("PRD120");
-		product.setName("Samsung s6102");
+		product.setName("Samsung j7");
 		product.setDescription("Mobile");
 		product.setPrice(20000);
 

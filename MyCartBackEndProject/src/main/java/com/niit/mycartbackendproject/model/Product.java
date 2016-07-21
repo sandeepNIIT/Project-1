@@ -1,5 +1,15 @@
 package com.niit.mycartbackendproject.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table
+@Component
+
 public class Product {
 	private String id;
 	private String name;
@@ -13,7 +23,7 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
+@Id
 	public String getId() {
 		return id;
 	}

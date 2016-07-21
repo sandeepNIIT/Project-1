@@ -1,5 +1,15 @@
 package com.niit.mycartbackendproject.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Entity
+@Table
+@Component
+
 public class User {
 	private String id;
 	private String name;
@@ -7,6 +17,7 @@ public class User {
 	private String mobileno;
 	private String email;
 	private String address;
+	@Id
 
 	public String getId() {
 		return id;
