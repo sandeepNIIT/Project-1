@@ -1,5 +1,6 @@
 package com.niit.mycartbackendproject.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -17,6 +18,16 @@ public class User {
 	private String mobileno;
 	private String email;
 	private String address;
+	@Column(name="admin", columnDefinition = "tinyint default 0" )
+	public byte admin;
+	public byte getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(byte admin) {
+		this.admin = admin;
+	}
+
 	@Id
 
 	public String getId() {
