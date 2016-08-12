@@ -28,14 +28,14 @@ public void saveOrUpdate(Category category){
 	sessionFactory.getCurrentSession().saveOrUpdate(category);
 }
 @Transactional
-public void delete(String id){
+public void delete(int id){
 	Category CategoryToDelete = new Category();
 	CategoryToDelete.setId(id);
 	sessionFactory.getCurrentSession().delete(CategoryToDelete);
 }
 @Transactional
-public Category get(String id){
-	String hql = "from category where id ="+"'"+id+"'";
+public Category get(int id){
+	String hql = "from Category where id ="+"'"+id+"'";
 	Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 	List<Category> listCategory = (List<Category>) query.getResultList();
 	

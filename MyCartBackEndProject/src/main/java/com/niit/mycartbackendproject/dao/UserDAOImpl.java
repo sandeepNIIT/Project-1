@@ -28,14 +28,14 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Transactional
-	public void delete(String id) {
+	public void delete(int id) {
 		User UserToDelete = new User();
 		UserToDelete.setId(id);
 		sessionFactory.getCurrentSession().delete(UserToDelete);
 	}
 
 	@Transactional
-	public User get(String id) {
+	public User get(int id) {
 		String hql = "from User where id =" + "'" + id + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		List<User> listUser = (List<User>) query.getResultList();
@@ -54,17 +54,42 @@ public class UserDAOImpl implements UserDAO {
 		return listUser;
 	}
 	@Transactional
-	public boolean isValidUser(String id,String password){
-		String hql = "from User where id='"+id+"' and password = '"+password+"'";
+	public boolean isValidUser(String name,String password){
+		String hql = "from User where name='"+name+"' and password = '"+password+"'";
+		
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 		List<User> list = (List<User>)query.getResultList();
 		
-		if(list != null || list.isEmpty()){
-			return true;}
+		
+		if( list.isEmpty()&&list==null){
+			return false;}
 			else{
-				return false;
+				return true;
 				}
+		
 		}
+	
+	@Transactional
+	public boolean admin(String name,String password){
+		String hql = "from User where name='Sandy@niit' and password ='admin@niit'";
+		
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		List<User> list = (List<User>)query.getResultList();
+		
+		User useradmin = new User();
+		if( list.isEmpty()){
+			
+			return false;
+			}
+			else{
+				useradmin.setAdmin((byte) 1);
+				return true;
+				}
+		
+		}
+	
 	}
+
+
 	
 

@@ -6,9 +6,9 @@ import com.niit.mycartbackendproject.model.Category;
 
 public interface CategoryDAO {
 	public List<Category> list();
-	public Category get(String id);
+	public Category get(int id);
 	public void saveOrUpdate(Category category);
-	public void delete(String id);
+	public void delete(int id);
 	
 	
 	

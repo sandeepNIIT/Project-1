@@ -28,14 +28,14 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	@Transactional
-	public void delete(String id) {
+	public void delete(int id) {
 		Product ProductToDelete = new Product();
 		ProductToDelete.setId(id);
 		sessionFactory.getCurrentSession().delete(ProductToDelete);
 	}
 
 	@Transactional
-	public Product get(String id) {
+	public Product get(int id) {
 		String hql = "from product where id =" + "'" + id + "'";
 		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 		List<Product> listProduct = (List<Product>) query.getResultList();

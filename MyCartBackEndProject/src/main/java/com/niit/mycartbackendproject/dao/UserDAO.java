@@ -7,14 +7,19 @@ import com.niit.mycartbackendproject.model.User;
 public interface UserDAO {
 	public List<User> list();
 
-	public User get(String id);
+	public User get(int id);
 	
 
 	public void saveOrUpdate(User user);
 
-	public void delete(String id);
+	public void delete(int id);
 	
-	public boolean isValidUser(String id,String password);
+	public boolean isValidUser(String name,String password);
+	
+	public boolean admin(String name,String password);
+	
+	
+	
 
 	
 

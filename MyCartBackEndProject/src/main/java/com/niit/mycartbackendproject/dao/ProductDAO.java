@@ -6,9 +6,9 @@ import com.niit.mycartbackendproject.model.Product;
 
 public interface ProductDAO {
 	public List<Product> list();
-	public Product get(String id);
+	public Product get(int id);
 	public void saveOrUpdate(Product product);
-	public void delete(String id);
+	public void delete(int id);
 	
 	
 	

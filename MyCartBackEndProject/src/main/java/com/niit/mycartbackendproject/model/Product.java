@@ -1,6 +1,9 @@
 package com.niit.mycartbackendproject.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 
 public class Product {
-	private String id;
+	private int id;
 	private String name;
 	private double price;
 	private String description;
@@ -24,11 +27,14 @@ public class Product {
 		this.description = description;
 	}
 @Id
-	public String getId() {
+
+@GeneratedValue(strategy=GenerationType.AUTO)
+@Column(name="id")
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

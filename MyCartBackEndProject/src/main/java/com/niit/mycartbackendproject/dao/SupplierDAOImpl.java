@@ -30,13 +30,13 @@ public void saveOrUpdate(Supplier supplier){
 	sessionFactory.getCurrentSession().saveOrUpdate(supplier);
 }
 @Transactional
-public void delete(String id){
+public void delete(int id){
 	Supplier SupplierToDelete = new Supplier();
 	SupplierToDelete.setId(id);
 	sessionFactory.getCurrentSession().delete(SupplierToDelete);
 }
 @Transactional
-public Supplier get(String id){
+public Supplier get(int id){
 	String hql = "from category where id ="+"'"+id+"'";
 	Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
 	List<Supplier> listSupplier = (List<Supplier>) query.getResultList();
